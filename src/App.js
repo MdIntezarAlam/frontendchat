@@ -4,6 +4,7 @@ import { useState } from "react";
 import MessageBox from "./MessageBox";
 
 const backendUrl = "https://backendchat-seven.vercel.app/";
+
 const socket = io.connect(backendUrl);
 
 function App() {
