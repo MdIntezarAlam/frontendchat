@@ -3,14 +3,17 @@ import io from "socket.io-client";
 import { useState } from "react";
 import MessageBox from "./MessageBox";
 
-const backendUrl = "https://backendchat-seven.vercel.app/";
-
-const socket = io.connect(backendUrl);
+// const backendUrl = "https://backendchat-seven.vercel.app/";
 
 function App() {
   const [userName, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [isTrue, setIsTrue] = useState(false);
+
+  const backendUrl = "https://backendchat-seven.vercel.app/";
+  const backendUrI = "http://localhost:3001";
+
+  const socket = io(backendUrI);
 
   const startMessage = () => {
     if (userName !== "" && room !== "") {
@@ -18,9 +21,6 @@ function App() {
       setIsTrue(true);
     }
   };
-  console.log("Connecting to:", backendUrl);
-  const socket = io.connect(backendUrl);
-  console.log("Socket connected:", socket);
 
   return (
     <div className="flex flex-col items-center  py-6 h-screen relative   bg-gradient-to-tr from-violet-400 via-neutral-800 to-teal-700 text-white">
